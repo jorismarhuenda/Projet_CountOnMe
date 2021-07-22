@@ -215,7 +215,7 @@
                                 </subviews>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="1+1=2" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="T2H-yn-nBB">
-                                <rect key="frame" x="15" y="44" width="384" height="460.5"/>
+                                <rect key="frame" x="20" y="44" width="374" height="460.5"/>
                                 <color key="backgroundColor" red="0.24527746819999999" green="0.53481305040000005" blue="0.58749136739999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
@@ -231,10 +231,10 @@
                             <constraint firstItem="T2H-yn-nBB" firstAttribute="top" secondItem="AWJ-Vl-uau" secondAttribute="top" id="CLn-Xb-ejZ"/>
                             <constraint firstItem="isI-Gg-Iye" firstAttribute="top" secondItem="T2H-yn-nBB" secondAttribute="bottom" constant="20" id="JI3-hW-HBQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="isI-Gg-Iye" secondAttribute="trailing" id="N9z-2Q-wSc"/>
-                            <constraint firstItem="T2H-yn-nBB" firstAttribute="leading" secondItem="AWJ-Vl-uau" secondAttribute="leading" constant="15" id="YED-Gz-Cb5"/>
+                            <constraint firstItem="T2H-yn-nBB" firstAttribute="leading" secondItem="AWJ-Vl-uau" secondAttribute="leading" constant="20" id="YED-Gz-Cb5"/>
                             <constraint firstItem="ogr-Aw-e1h" firstAttribute="leading" secondItem="eIh-hr-C95" secondAttribute="leading" constant="20" id="dPd-Vp-xt3"/>
                             <constraint firstItem="ogr-Aw-e1h" firstAttribute="top" secondItem="isI-Gg-Iye" secondAttribute="bottom" constant="20" id="f0z-ro-RND"/>
-                            <constraint firstItem="AWJ-Vl-uau" firstAttribute="trailing" secondItem="T2H-yn-nBB" secondAttribute="trailing" constant="15" id="shW-EA-MRM"/>
+                            <constraint firstItem="AWJ-Vl-uau" firstAttribute="trailing" secondItem="T2H-yn-nBB" secondAttribute="trailing" constant="20" id="shW-EA-MRM"/>
                         </constraints>
                     </view>
                     <connections>
