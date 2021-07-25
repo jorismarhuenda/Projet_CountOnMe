@@ -9,8 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
     @IBOutlet weak var textView: UITextView!
     @IBOutlet var numberButtons: [UIButton]!
+    @IBOutlet var additionButton: UIButton!
+    @IBOutlet var multiplicationButton: UIButton!
+    @IBOutlet var substractionButton: UIButton!
+    @IBOutlet var divideButton: UIButton!
+    @IBOutlet var egalButton: UIButton!
+    @IBOutlet var commaButton: UIButton!
+    @IBOutlet var eraseButton: UIButton!
     
     var elements: [String] {
         return textView.text.split(separator: " ").map { "\($0)" }
