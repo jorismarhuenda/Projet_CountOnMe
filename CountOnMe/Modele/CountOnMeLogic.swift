@@ -52,9 +52,14 @@ class CountOnMeLogic {
         if let stringNumber = stringNumber.last {
             var stringNumberMutable = stringNumber
             stringNumberMutable += "\(newNumber)"
-            stringNumber[stringNumber.count-1] = stringNumberMutable
         }
         updateLabelText()
+    }
+    // Method managing reset of the label's text.
+    func clear() {
+        stringNumber = [String()]
+        operators = ["Suppr"]
+        index = 0
     }
     // Method managing the divide operator when user types it.
     func divide() {
