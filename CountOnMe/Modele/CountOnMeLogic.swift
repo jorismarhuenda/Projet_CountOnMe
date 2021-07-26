@@ -16,6 +16,8 @@ protocol CountOnMeDelegate {
 }
 
 class CountOnMeLogic {
+    
+    //MARK: -Properties
     // Array of numbers.
     var stringNumber: [String] = [String()]
     // Array of operators.
@@ -28,9 +30,9 @@ class CountOnMeLogic {
         if let stringNumber = stringNumber.last {
             if stringNumber.isEmpty {
                 if stringNumber.count == 1 {
-                    countOnMeDelegate?.alertShow(title: "Zero", message: "Start new calculation")
+                    countOnMeDelegate?.alertShow(title: "No!", message: "Start new calculation")
                 } else {
-                    countOnMeDelegate?.alertShow(title: "Zero", message: "Type correct expression please")
+                    countOnMeDelegate?.alertShow(title: "No!", message: "Type correct expression please")
                 }
                 return false
             }
@@ -41,12 +43,13 @@ class CountOnMeLogic {
     var canAddOperator: Bool {
         if let stringNumber = stringNumber.last {
             if stringNumber.isEmpty {
-                countOnMeDelegate?.alertShow(title: "Zero!", message: "Wrong expression!")
+                countOnMeDelegate?.alertShow(title: "No!", message: "Wrong expression")
                 return false
             }
         }
         return true
     }
+    //MARK: -Methodes
     // Method managing numbers when user types them.
     func addNewNumber(_ newNumber: Int) {
         if let stringNumber = stringNumber.last {
@@ -54,6 +57,55 @@ class CountOnMeLogic {
             stringNumberMutable += "\(newNumber)"
         }
         updateLabelText()
+    }
+    // Method managing operations (+, -).
+    func primaryCalculations() {
+        if !isExpressionIsCorrect {
+            return
+        }
+        orderOfOperations()
+        var total = Double()
+        for (index, stringNumber) in stringNumber.enumerated() {
+            guard let number = Double(stringNumber) else { return }
+            if operators[index] == "+" {
+                total += number
+            } else if operators[index] == "-" {
+                total -= number
+            }
+        }
+        let result = String(format: "%.2f", total)
+        countOnMeDelegate?.updateTextView(label: result)
+        clear()
+    }
+    // Method managing order of operations and managing operations (*, /).
+    func orderOfOperations() {
+        let priorityOperators = ["X", "/"]
+        var result: Double = 0
+        var chiffre = 0
+        while chiffre < stringNumber.count - 1 {
+            if var firstOperand = Double(stringNumber[chiffre]) {
+                while priorityOperators.contains(operators[chiffre + 1]) {
+                    if let secondOperand = Double(stringNumber[chiffre + 1]) {
+                        if operators[chiffre + 1] == "X" {
+                            result = firstOperand * secondOperand
+                        } else if operators[chiffre + 1] == "/" && secondOperand != 0 {
+                            result = firstOperand / secondOperand
+                        } else {
+                            countOnMeDelegate?.alertShow(title: "Error", message: "You can't divide by 0")
+                            result = 0
+                        }
+                        stringNumber[chiffre] = String(result)
+                        firstOperand = result
+                        stringNumber.remove(at: chiffre + 1)
+                        operators.remove(at: chiffre + 1)
+                        if chiffre == stringNumber.count - 1 {
+                            return
+                        }
+                    }
+                }
+                chiffre += 1
+            }
+        }
     }
     // Method managing reset of the label's text.
     func clear() {
@@ -77,7 +129,7 @@ class CountOnMeLogic {
             updateLabelText()
         }
     }
-    // Method managing the minus operator when users types it
+    // Method managing the minus operator when users types it.
     func minus() {
         if canAddOperator {
             operators.append("-")
@@ -85,7 +137,7 @@ class CountOnMeLogic {
             updateLabelText()
         }
     }
-    // Method managing the plus operator when users types it
+    // Method managing the plus operator when users types it.
     func plus() {
         if canAddOperator {
             operators.append("+")
@@ -97,11 +149,11 @@ class CountOnMeLogic {
     func updateLabelText() {
         var text = ""
         for (index, stringNumber) in stringNumber.enumerated() {
-            // Add operator
+            // Add operator.
             if index > 0 {
                 text += operators[index]
             }
-            // Add number
+            // Add number.
             text += stringNumber
         }
         countOnMeDelegate?.updateTextView(label: text)

@@ -11,5 +11,14 @@ import XCTest
 
 class CountOnMeLogicTest: XCTestCase {
     var countOnMe: CountOnMeLogic!
+    
+    override func setUp() {
+        super.setUp()
+        countOnMe = CountOnMeLogic()
+    }
+    
+    func testGivenIsExpressionIsCorrect_WhenStringNumberContainNothing_ThenExpressionReturnFalse() {
+        XCTAssertFalse(countOnMe.isExpressionIsCorrect)
+    }
 
 }
