@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+//Using protocol to delegate alerts and update the display.
 protocol CountOnMeDelegate {
     func alertShow(title: String, message: String)
     func updateTextView(label: String)
