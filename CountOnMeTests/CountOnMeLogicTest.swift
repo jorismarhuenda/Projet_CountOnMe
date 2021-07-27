@@ -18,5 +18,10 @@ class CountOnMeLogicTest: XCTestCase {
     func testGivenIsExpressionIsCorrect_WhenStringNumberContainNothing_ThenExpressionReturnFalse() {
         XCTAssertFalse(countOnMe.isExpressionIsCorrect)
     }
-
+    func testGivenIsExpressionIsCorrect_WhenExpressionTappedIsNotCorrect_ThenExpressionReturnFalse() {
+        countOnMe.addNewNumber(1)
+        countOnMe.plus()
+        countOnMe.primaryCalculations()
+        XCTAssertFalse(countOnMe.isExpressionIsCorrect)
+    }
 }

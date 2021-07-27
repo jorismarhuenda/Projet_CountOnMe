@@ -20,7 +20,7 @@ class CountOnMeLogic {
     // Array of numbers.
     var stringNumber: [String] = [String()]
     // Array of operators.
-    var operators: [String] = [""]
+    var operators: [String] = ["Suppr"]
     var index = 0
     // Var that holds the delegate.
     weak var countOnMeDelegate: CountOnMeDelegate?
@@ -108,6 +108,9 @@ class CountOnMeLogic {
     }
     // Method managing reset of the label's text.
     func clear() {
+        stringNumber = [String()]
+        operators = ["Suppr"]
+        index = 0
     }
     // Method managing the divide operator when user types it.
     func divide() {
