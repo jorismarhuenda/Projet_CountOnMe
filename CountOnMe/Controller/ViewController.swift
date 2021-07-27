@@ -9,11 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+
     @IBOutlet weak var textView: UITextView!
     @IBOutlet var numbersButton: [UIButton]!
     @IBOutlet var operatorButtons: [UIButton]!
-    
-    
-}
 
+    var countOnMeLogic = CountOnMeLogic()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+}

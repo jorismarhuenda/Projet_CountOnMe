@@ -10,20 +10,20 @@ import Foundation
 import UIKit
 
 // Using protocol to delegate alerts and update the display.
-protocol CountOnMeDelegate {
+protocol CountOnMeDelegate: AnyObject {
     func alertShow(title: String, message: String)
     func updateTextView(label: String)
 }
 
 class CountOnMeLogic {
-    //MARK: -Properties
+    // MARK: - Properties
     // Array of numbers.
     var stringNumber: [String] = [String()]
     // Array of operators.
-    var operators: [String] = ["+"]
+    var operators: [String] = [""]
     var index = 0
     // Var that holds the delegate.
-    var countOnMeDelegate: CountOnMeDelegate?
+    weak var countOnMeDelegate: CountOnMeDelegate?
     // Var checking if the expression is correctly typed by the user, else it will alert the user.
     var isExpressionIsCorrect: Bool {
         if let stringNumber = stringNumber.last {
@@ -48,7 +48,7 @@ class CountOnMeLogic {
         }
         return true
     }
-    //MARK: -Methodes
+    // MARK: - Methodes
     // Method managing numbers when user types them.
     func addNewNumber(_ newNumber: Int) {
         if let stringNumber = stringNumber.last {
@@ -108,9 +108,6 @@ class CountOnMeLogic {
     }
     // Method managing reset of the label's text.
     func clear() {
-        stringNumber = [String()]
-        operators = ["Suppr"]
-        index = 0
     }
     // Method managing the divide operator when user types it.
     func divide() {
