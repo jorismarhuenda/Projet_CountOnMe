@@ -16,7 +16,6 @@ protocol CountOnMeDelegate {
 }
 
 class CountOnMeLogic {
-    
     //MARK: -Properties
     // Array of numbers.
     var stringNumber: [String] = [String()]
@@ -30,9 +29,9 @@ class CountOnMeLogic {
         if let stringNumber = stringNumber.last {
             if stringNumber.isEmpty {
                 if stringNumber.count == 1 {
-                    countOnMeDelegate?.alertShow(title: "No!", message: "Start new calculation")
+                    countOnMeDelegate?.alertShow(title: "Nothing!", message: "Start new calculation")
                 } else {
-                    countOnMeDelegate?.alertShow(title: "No!", message: "Type correct expression please")
+                    countOnMeDelegate?.alertShow(title: "Nothing!", message: "Type correct expression please")
                 }
                 return false
             }
@@ -43,7 +42,7 @@ class CountOnMeLogic {
     var canAddOperator: Bool {
         if let stringNumber = stringNumber.last {
             if stringNumber.isEmpty {
-                countOnMeDelegate?.alertShow(title: "No!", message: "Wrong expression")
+                countOnMeDelegate?.alertShow(title: "Nothing!", message: "Wrong expression")
                 return false
             }
         }
@@ -58,7 +57,7 @@ class CountOnMeLogic {
         }
         updateLabelText()
     }
-    // Method managing operations (+, -).
+    // Method managing operations plus and minus.
     func primaryCalculations() {
         if !isExpressionIsCorrect {
             return
@@ -73,29 +72,29 @@ class CountOnMeLogic {
                 total -= number
             }
         }
-        let result = String(format: "%.2f", total)
+        let result = String(format: "%.3f", total)
         countOnMeDelegate?.updateTextView(label: result)
         clear()
     }
-    // Method managing order of operations and managing operations (*, /).
+    // Method managing order of operations and managing operations multiply and divide.
     func orderOfOperations() {
         let priorityOperators = ["X", "/"]
         var result: Double = 0
         var chiffre = 0
         while chiffre < stringNumber.count - 1 {
-            if var firstOperand = Double(stringNumber[chiffre]) {
+            if var firstOperator = Double(stringNumber[chiffre]) {
                 while priorityOperators.contains(operators[chiffre + 1]) {
-                    if let secondOperand = Double(stringNumber[chiffre + 1]) {
+                    if let secondOperator = Double(stringNumber[chiffre + 1]) {
                         if operators[chiffre + 1] == "X" {
-                            result = firstOperand * secondOperand
-                        } else if operators[chiffre + 1] == "/" && secondOperand != 0 {
-                            result = firstOperand / secondOperand
+                            result = firstOperator * secondOperator
+                        } else if operators[chiffre + 1] == "/" && secondOperator != 0 {
+                            result = firstOperator / secondOperator
                         } else {
                             countOnMeDelegate?.alertShow(title: "Error", message: "You can't divide by 0")
                             result = 0
                         }
                         stringNumber[chiffre] = String(result)
-                        firstOperand = result
+                        firstOperator = result
                         stringNumber.remove(at: chiffre + 1)
                         operators.remove(at: chiffre + 1)
                         if chiffre == stringNumber.count - 1 {

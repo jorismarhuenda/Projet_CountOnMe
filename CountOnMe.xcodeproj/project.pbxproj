@@ -457,7 +457,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CountOnMeLogicTest/Info.plist;
+				INFOPLIST_FILE = "/Users/marhuendajoris/Desktop/P5-Marhuenda-Joris/CountOnMe/Projet_CountOnMe/CountOnMeLogicTest/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -479,7 +479,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CountOnMeLogicTest/Info.plist;
+				INFOPLIST_FILE = "/Users/marhuendajoris/Desktop/P5-Marhuenda-Joris/CountOnMe/Projet_CountOnMe/CountOnMeLogicTest/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
