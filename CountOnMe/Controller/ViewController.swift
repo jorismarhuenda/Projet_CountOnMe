@@ -20,4 +20,23 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
 
+    @IBAction func tappedNumberButtons(_ sender: UIButton) {
+        countOnMeLogic.addNewNumber(sender.tag)
+    }
+    @IBAction func tappedOperatorButtons(_ sender: UIButton) {
+        switch sender.title(for: .normal) {
+        case "+":
+            countOnMeLogic.plus()
+        case "-":
+            countOnMeLogic.minus()
+        case "x":
+            countOnMeLogic.multiply()
+        case "÷":
+            countOnMeLogic.divide()
+        case "=":
+            countOnMeLogic.primaryCalculations()
+        default:
+            break
+        }
+    }
 }
