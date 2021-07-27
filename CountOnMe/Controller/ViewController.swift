@@ -29,12 +29,14 @@ class ViewController: UIViewController {
             countOnMeLogic.plus()
         case "-":
             countOnMeLogic.minus()
-        case "x":
+        case "X":
             countOnMeLogic.multiply()
-        case "÷":
+        case "/":
             countOnMeLogic.divide()
         case "=":
             countOnMeLogic.primaryCalculations()
+        case "Suppr":
+            countOnMeLogic.clear()
         default:
             break
         }
