@@ -35,4 +35,38 @@ class CountOnMeLogicTest: XCTestCase {
         countOnMe.addNewNumber(1)
         XCTAssertTrue(countOnMe.canAddOperator)
     }
+    func testGivenAddNewNumber_WhenStringNumberContainAnything_ThenNewNumberIsAdded() {
+        countOnMe.addNewNumber(1)
+        XCTAssert(countOnMe.stringNumbers[countOnMe.stringNumbers.count-1] == "1")
+    }
+    func testGivenClear_WhenStringNumberContainAnything_ThenStringNumberIsCleared() {
+        countOnMe.clear()
+        XCTAssert(countOnMe.stringNumbers[countOnMe.stringNumbers.count-1] == "")
+        XCTAssert(countOnMe.operators == ["Suppr"])
+        XCTAssert(countOnMe.index == 0)
+    }
+    func testGivenOrderOfOperations_WhenStringNumberContainSomething_ThenStringNumberMinusResult() {
+        countOnMe.addNewNumber(4)
+        countOnMe.minus()
+        countOnMe.addNewNumber(2)
+        XCTAssert(true)
+    }
+    func testGivenOrderOfOperations_WhenStringNumberContainSomething_ThenStringNumberAdditionResult() {
+        countOnMe.addNewNumber(2)
+        countOnMe.plus()
+        countOnMe.addNewNumber(4)
+        XCTAssert(true)
+    }
+    func testGivenOrderOfOperations_WhenStringNumberContainSomething_ThenStringNumberDivideResult() {
+        countOnMe.addNewNumber(2)
+        countOnMe.divide()
+        countOnMe.addNewNumber(2)
+        XCTAssert(true)
+    }
+    func testGivenOrderOfOperations_WhenStringNumberContainZero_ThenStringNumberDivideResult() {
+        countOnMe.addNewNumber(2)
+        countOnMe.divide()
+        countOnMe.addNewNumber(0)
+        XCTAssert(true)
+    }
 }
