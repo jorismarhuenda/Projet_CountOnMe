@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  SimpleCalc
 //
-//  Created by Vincent Saluzzo on 29/03/2019.
-//  Copyright © 2019 Vincent Saluzzo. All rights reserved.
+//  Created by marhuenda joris on 25/07/2021.
+//  Copyright © 2021 marhuenda joris. All rights reserved.
 //
 
 import UIKit
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     }
 }
 extension UIViewController {
-    //Method showing alerts to user when user's inputs are wrong
+    // Method showing alerts to user when user's inputs are wrong.
     func updateShowAlert(title: String, message: String) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
             alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))

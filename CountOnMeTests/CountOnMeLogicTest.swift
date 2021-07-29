@@ -2,8 +2,8 @@
 //  CountOnMeLogicTest.swift
 //  CountOnMeTests
 //
-//  Created by marhuenda joris on 26/07/2021.
-//  Copyright © 2021 Vincent Saluzzo. All rights reserved.
+//  Created by marhuenda joris on 25/07/2021.
+//  Copyright © 2021 marhuenda joris. All rights reserved.
 //
 
 import XCTest
@@ -23,5 +23,9 @@ class CountOnMeLogicTest: XCTestCase {
         countOnMe.plus()
         countOnMe.primaryCalculations()
         XCTAssertFalse(countOnMe.isExpressionIsCorrect)
+    }
+    func testGivenIsExpressionIsCorrect_WhenExpressionTappedIsCorrect_ThenExpressionReturnTrue() {
+        countOnMe.addNewNumber(1)
+        XCTAssertTrue(countOnMe.isExpressionIsCorrect)
     }
 }
