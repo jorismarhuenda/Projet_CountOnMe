@@ -28,4 +28,11 @@ class CountOnMeLogicTest: XCTestCase {
         countOnMe.addNewNumber(1)
         XCTAssertTrue(countOnMe.isExpressionIsCorrect)
     }
+    func testGivenCanAddOperator_WhenStringNumberContainNothing_ThenCanAddOperatorReturnFalse() {
+        XCTAssertFalse(countOnMe.canAddOperator)
+    }
+    func testGivenCanAddOperator_WhenStringNumberContainSomethin_ThenCanAddOperatorReturnTrue() {
+        countOnMe.addNewNumber(1)
+        XCTAssertTrue(countOnMe.canAddOperator)
+    }
 }
