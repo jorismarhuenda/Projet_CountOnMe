@@ -75,7 +75,6 @@ class CountOnMeLogic {
         }
         let result = String(format: "%.3f", total)
         countOnMeDelegate?.updateTextView(label: result)
-        clear()
     }
     // Method managing order of operations and managing operations multiply and divide.
     func orderOfOperations() {
@@ -112,6 +111,7 @@ class CountOnMeLogic {
         stringNumbers = [String()]
         operators = ["Suppr"]
         index = 0
+        updateLabelText()
     }
     // Method managing the divide operator when user types it.
     func divide() {
