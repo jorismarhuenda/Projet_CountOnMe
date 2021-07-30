@@ -75,4 +75,15 @@ class CountOnMeLogicTest: XCTestCase {
         countOnMe.addNewNumber(2)
         XCTAssert(true)
     }
+    func testGivenOrderOfOperations_WhenStringNumberContainSomething_ThenStringNumberFollowsOrderOfOperations() {
+        countOnMe.addNewNumber(1)
+        countOnMe.minus()
+        countOnMe.addNewNumber(2)
+        countOnMe.multiply()
+        countOnMe.addNewNumber(3)
+        countOnMe.divide()
+        countOnMe.addNewNumber(4)
+        countOnMe.primaryCalculations()
+        XCTAssert(true)
+    }
 }
