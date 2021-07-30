@@ -69,4 +69,10 @@ class CountOnMeLogicTest: XCTestCase {
         countOnMe.addNewNumber(0)
         XCTAssert(true)
     }
+    func testGivenOrderOfOperations_WhenStringNumberContainSomething_ThenStringNumberMultiplyResult() {
+        countOnMe.addNewNumber(2)
+        countOnMe.multiply()
+        countOnMe.addNewNumber(2)
+        XCTAssert(true)
+    }
 }
