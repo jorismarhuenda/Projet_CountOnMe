@@ -76,33 +76,34 @@ class CountOnMeLogic {
         let result = String(format: "%.3f", total)
         countOnMeDelegate?.updateTextView(label: result)
     }
+    // swiftlint:disable identifier_name
     // Method managing order of operations and managing operations multiply and divide.
     func orderOfOperations() {
         let priorityOperators = ["X", "/"]
         var result: Double = 0
-        var chiffre = 0
-        while chiffre < stringNumbers.count - 1 {
-            if var firstOperator = Double(stringNumbers[chiffre]) {
-                while priorityOperators.contains(operators[chiffre + 1]) {
-                    if let secondOperator = Double(stringNumbers[chiffre + 1]) {
-                        if operators[chiffre + 1] == "X" {
+        var i = 0
+        while i < stringNumbers.count - 1 {
+            if var firstOperator = Double(stringNumbers[i]) {
+                while priorityOperators.contains(operators[i + 1]) {
+                    if let secondOperator = Double(stringNumbers[i + 1]) {
+                        if operators[i + 1] == "X" {
                             result = firstOperator * secondOperator
-                        } else if operators[chiffre + 1] == "/" && secondOperator != 0 {
+                        } else if operators[i + 1] == "/" && secondOperator != 0 {
                             result = firstOperator / secondOperator
                         } else {
                             countOnMeDelegate?.alertShow(title: "Error", message: "You can't divide by 0")
                             result = 0
                         }
-                        stringNumbers[chiffre] = String(result)
+                        stringNumbers[i] = String(result)
                         firstOperator = result
-                        stringNumbers.remove(at: chiffre + 1)
-                        operators.remove(at: chiffre + 1)
-                        if chiffre == stringNumbers.count - 1 {
+                        stringNumbers.remove(at: i + 1)
+                        operators.remove(at: i + 1)
+                        if i == stringNumbers.count - 1 {
                             return
                         }
                     }
                 }
-                chiffre += 1
+                i += 1
             }
         }
     }
