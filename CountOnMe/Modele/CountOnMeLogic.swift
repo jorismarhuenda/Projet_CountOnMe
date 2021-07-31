@@ -14,16 +14,16 @@ protocol CountOnMeDelegate: AnyObject {
     func alertShow(title: String, message: String)
     func updateTextView(label: String)
 }
-
+// swiftlint:disable weak_delegate
 class CountOnMeLogic {
     // MARK: - Properties
     // Array of numbers.
     var stringNumbers: [String] = [String()]
     // Array of operators.
-    var operators: [String] = ["Suppr"]
+    var operators: [String] = ["+"]
     var index = 0
     // Var that holds the delegate.
-    weak var countOnMeDelegate: CountOnMeDelegate?
+    var countOnMeDelegate: CountOnMeDelegate?
     // Var checking if the expression is correctly typed by the user, else it will alert the user.
     var isExpressionIsCorrect: Bool {
         if let stringNumber = stringNumbers.last {
@@ -75,6 +75,7 @@ class CountOnMeLogic {
         }
         let result = String(format: "%.3f", total)
         countOnMeDelegate?.updateTextView(label: result)
+        clear()
     }
     // swiftlint:disable identifier_name
     // Method managing order of operations and managing operations multiply and divide.
@@ -110,9 +111,8 @@ class CountOnMeLogic {
     // Method managing reset of the label's text.
     func clear() {
         stringNumbers = [String()]
-        operators = ["Suppr"]
+        operators = ["+"]
         index = 0
-        updateLabelText()
     }
     // Method managing the divide operator when user types it.
     func divide() {

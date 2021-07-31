@@ -37,19 +37,9 @@ class ViewController: UIViewController {
             countOnMeLogic.divide()
         case "=":
             countOnMeLogic.primaryCalculations()
-        case "Suppr":
-            countOnMeLogic.clear()
         default:
             break
         }
-    }
-}
-extension UIViewController {
-    // Method showing alerts to user when user's inputs are wrong.
-    func updateShowAlert(title: String, message: String) {
-        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            present(alertVC, animated: true, completion: nil)
     }
 }
 // Using extension with protocol to delegate, in order to manage alerts and update the display, to the model.
