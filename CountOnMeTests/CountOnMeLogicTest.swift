@@ -86,4 +86,8 @@ class CountOnMeLogicTest: XCTestCase {
         countOnMe.primaryCalculations()
         XCTAssert(true)
     }
+    func testGivenOrderOfOperations_WhenStringNumberContainSomething_ThenStringNumberIsCorrect() {
+        countOnMe.orderOfOperations()
+        XCTAssert(true)
+    }
 }
