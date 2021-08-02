@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         case "/":
             countOnMeLogic.divide()
         case "=":
-            countOnMeLogic.primaryCalculations()
+            countOnMeLogic.finalCalculation()
         default:
             break
         }

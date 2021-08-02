@@ -59,7 +59,7 @@ class CountOnMeLogic {
         updateLabelText()
     }
     // Method managing operations plus and minus.
-    func primaryCalculations() {
+    func finalCalculation() {
         if !isExpressionIsCorrect {
             return
         }
@@ -75,7 +75,6 @@ class CountOnMeLogic {
         }
         let result = String(format: "%.3f", total)
         countOnMeDelegate?.updateTextView(label: result)
-        clear()
     }
     // swiftlint:disable identifier_name
     // Method managing order of operations and managing operations multiply and divide.

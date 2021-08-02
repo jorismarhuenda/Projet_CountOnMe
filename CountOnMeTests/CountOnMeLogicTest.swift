@@ -21,7 +21,7 @@ class CountOnMeLogicTest: XCTestCase {
     func testGivenIsExpressionIsCorrect_WhenExpressionTappedIsNotCorrect_ThenExpressionReturnFalse() {
         countOnMe.addNewNumber(1)
         countOnMe.plus()
-        countOnMe.primaryCalculations()
+        countOnMe.finalCalculation()
         XCTAssertFalse(countOnMe.isExpressionIsCorrect)
     }
     func testGivenIsExpressionIsCorrect_WhenExpressionTappedIsCorrect_ThenExpressionReturnTrue() {
@@ -42,20 +42,22 @@ class CountOnMeLogicTest: XCTestCase {
     func testGivenClear_WhenStringNumberContainAnything_ThenStringNumberIsCleared() {
         countOnMe.clear()
         XCTAssert(countOnMe.stringNumbers[countOnMe.stringNumbers.count-1] == "")
-        XCTAssert(countOnMe.operators == ["Suppr"])
+        XCTAssert(countOnMe.operators == ["+"])
         XCTAssert(countOnMe.index == 0)
     }
     func testGivenOrderOfOperations_WhenStringNumberContainSomething_ThenStringNumberMinusResult() {
         countOnMe.addNewNumber(4)
         countOnMe.minus()
         countOnMe.addNewNumber(2)
-        XCTAssert(true)
+        countOnMe.finalCalculation()
+        XCTAssertTrue(countOnMe.isExpressionIsCorrect)
     }
     func testGivenOrderOfOperations_WhenStringNumberContainSomething_ThenStringNumberAdditionResult() {
         countOnMe.addNewNumber(2)
         countOnMe.plus()
         countOnMe.addNewNumber(4)
-        XCTAssert(true)
+        countOnMe.finalCalculation()
+        XCTAssertTrue(countOnMe.isExpressionIsCorrect)
     }
     func testGivenOrderOfOperations_WhenStringNumberContainSomething_ThenStringNumberDivideResult() {
         countOnMe.addNewNumber(2)
@@ -83,7 +85,7 @@ class CountOnMeLogicTest: XCTestCase {
         countOnMe.addNewNumber(3)
         countOnMe.divide()
         countOnMe.addNewNumber(4)
-        countOnMe.primaryCalculations()
+        countOnMe.finalCalculation()
         XCTAssert(true)
     }
     func testGivenOrderOfOperations_WhenStringNumberContainSomething_ThenStringNumberIsCorrect() {
