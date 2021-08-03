@@ -35,6 +35,8 @@ class ViewController: UIViewController {
             countOnMeLogic.multiply()
         case "/":
             countOnMeLogic.divide()
+        case "AC":
+            countOnMeLogic.clear()
         case "=":
             countOnMeLogic.finalCalculation()
         default:

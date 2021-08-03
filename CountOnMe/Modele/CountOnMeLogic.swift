@@ -112,6 +112,7 @@ class CountOnMeLogic {
         stringNumbers = [String()]
         operators = ["+"]
         index = 0
+        updateLabelText()
     }
     // Method managing the divide operator when user types it.
     func divide() {

@@ -112,7 +112,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WCv-mh-kCr">
-                                        <rect key="frame" x="262.5" y="0.0" width="111.5" height="152"/>
+                                        <rect key="frame" x="262.5" y="0.0" width="111.5" height="206"/>
                                         <subviews>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDN-zf-T0y">
                                                 <rect key="frame" x="0.0" y="0.0" width="111.5" height="44"/>
@@ -145,6 +145,17 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="tappedNumberButtons:" destination="eqK-jh-KKu" eventType="touchUpInside" id="lpw-Em-iEK"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXl-5K-o9C">
+                                                <rect key="frame" x="0.0" y="162" width="111.5" height="44"/>
+                                                <color key="backgroundColor" red="0.60386270279999998" green="0.57648974659999996" blue="0.56862074139999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                <state key="normal" title="AC">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="tappedOperatorButtons:" destination="eqK-jh-KKu" eventType="touchUpInside" id="a2a-Ty-RDj"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -266,6 +277,7 @@
                         <outletCollection property="operatorButtons" destination="3zr-HC-0N9" collectionClass="NSMutableArray" id="6Fq-zz-O6n"/>
                         <outletCollection property="operatorButtons" destination="rQF-DA-wnO" collectionClass="NSMutableArray" id="L24-dv-pEh"/>
                         <outletCollection property="operatorButtons" destination="qMj-Of-bCU" collectionClass="NSMutableArray" id="KNg-O8-nIQ"/>
+                        <outletCollection property="operatorButtons" destination="OXl-5K-o9C" collectionClass="NSMutableArray" id="P5d-Nh-9uv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7XP-3c-sJZ" sceneMemberID="firstResponder"/>
