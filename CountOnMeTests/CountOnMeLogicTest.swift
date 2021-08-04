@@ -63,7 +63,8 @@ class CountOnMeLogicTest: XCTestCase {
         countOnMe.addNewNumber(2)
         countOnMe.divide()
         countOnMe.addNewNumber(2)
-        XCTAssert(true)
+        countOnMe.finalCalculation()
+        XCTAssertTrue(countOnMe.isExpressionIsCorrect)
     }
     func testGivenOrderOfOperations_WhenStringNumberContainZero_ThenStringNumberDivideResult() {
         countOnMe.addNewNumber(2)
