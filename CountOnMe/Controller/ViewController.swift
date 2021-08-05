@@ -39,6 +39,8 @@ class ViewController: UIViewController {
             countOnMeLogic.clear()
         case "=":
             countOnMeLogic.finalCalculation()
+        case ".":
+            countOnMeLogic.addPoint()
         default:
             break
         }

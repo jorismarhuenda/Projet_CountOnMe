@@ -19,6 +19,8 @@ class CountOnMeLogic {
     var index = 0
     // Var that holds the delegate.
     var countOnMeDelegate: CountOnMeDelegate?
+    // Is equal to true if the user enters a decimal number.
+    var isDecimal: Bool = false
     // Var checking if the expression is correctly typed by the user, else it will alert the user.
     var isExpressionIsCorrect: Bool {
         if let stringNumber = stringNumbers.last {
@@ -102,6 +104,15 @@ class CountOnMeLogic {
             }
         }
     }
+    func addPoint() {
+        if let stringNumber = stringNumbers.last {
+                var stringNumberMutable = stringNumber
+                stringNumberMutable += "."
+                isDecimal = true
+                stringNumbers[stringNumbers.count-1] = stringNumberMutable
+            }
+        updateLabelText()
+        }
     // Method managing reset of the label's text.
     func clear() {
         stringNumbers = [String()]
