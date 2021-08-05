@@ -70,13 +70,13 @@ class CountOnMeLogicTest: XCTestCase {
         countOnMe.addNewNumber(2)
         countOnMe.divide()
         countOnMe.addNewNumber(0)
-        XCTAssert(true)
+        XCTAssertTrue(countOnMe.isExpressionIsCorrect)
     }
     func testGivenOrderOfOperations_WhenStringNumberContainSomething_ThenStringNumberMultiplyResult() {
         countOnMe.addNewNumber(2)
         countOnMe.multiply()
         countOnMe.addNewNumber(2)
-        XCTAssert(true)
+        XCTAssertTrue(countOnMe.isExpressionIsCorrect)
     }
     func testGivenOrderOfOperations_WhenStringNumberContainSomething_ThenStringNumberFollowsOrderOfOperations() {
         countOnMe.addNewNumber(1)
@@ -87,7 +87,7 @@ class CountOnMeLogicTest: XCTestCase {
         countOnMe.divide()
         countOnMe.addNewNumber(4)
         countOnMe.finalCalculation()
-        XCTAssert(true)
+        XCTAssertTrue(countOnMe.isExpressionIsCorrect)
     }
     func testGivenOrderOfOperations_WhenStringNumberContainSomething_ThenStringNumberIsCorrect() {
         countOnMe.orderOfOperations()
