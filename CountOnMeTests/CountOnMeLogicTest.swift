@@ -10,6 +10,7 @@ import XCTest
 @testable import CountOnMe
 
 class CountOnMeLogicTest: XCTestCase {
+    var countOnMeDelegateMock = CountOnMeDelegateMock()
     var countOnMe: CountOnMeLogic!
     override func setUp() {
         super.setUp()

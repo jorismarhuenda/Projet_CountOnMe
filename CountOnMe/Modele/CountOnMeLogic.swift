@@ -53,7 +53,7 @@ class CountOnMeLogic {
         }
         updateLabelText()
     }
-    // Method managing operations plus and minus.
+    // Method managing operations plus and minus, else final calcul.
     func finalCalculation() {
         if !isExpressionIsCorrect {
             return
