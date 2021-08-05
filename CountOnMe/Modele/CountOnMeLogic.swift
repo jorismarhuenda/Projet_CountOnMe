@@ -9,11 +9,6 @@
 import Foundation
 import UIKit
 
-// Using protocol to delegate alerts and update the display.
-protocol CountOnMeDelegate: AnyObject {
-    func alertShow(title: String, message: String)
-    func updateTextView(label: String)
-}
 // swiftlint:disable weak_delegate
 class CountOnMeLogic {
     // MARK: - Properties

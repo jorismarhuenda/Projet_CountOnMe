@@ -13,6 +13,7 @@
 		1FA43BDA224E569A00F565CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FA43BD9224E569A00F565CB /* Assets.xcassets */; };
 		1FA43BDD224E569A00F565CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FA43BDB224E569A00F565CB /* LaunchScreen.storyboard */; };
 		EC179EEA26AEC8A4003A13B1 /* CountOnMeLogicTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC179EE926AEC8A4003A13B1 /* CountOnMeLogicTest.swift */; };
+		ECAEDFBF26BC21CF006F48F8 /* CountOnMeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAEDFBE26BC21CF006F48F8 /* CountOnMeDelegate.swift */; };
 		ECB2E27126ADA6E4008825B9 /* CountOnMeLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB2E27026ADA6E4008825B9 /* CountOnMeLogic.swift */; };
 		ECD1ECDB26B598BA00F82A45 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD1ECDA26B598BA00F82A45 /* UIViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		1FA43BE3224E569A00F565CB /* CountOnMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CountOnMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FA43BE9224E569A00F565CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC179EE926AEC8A4003A13B1 /* CountOnMeLogicTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountOnMeLogicTest.swift; sourceTree = "<group>"; };
+		ECAEDFBE26BC21CF006F48F8 /* CountOnMeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountOnMeDelegate.swift; sourceTree = "<group>"; };
 		ECB2E27026ADA6E4008825B9 /* CountOnMeLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountOnMeLogic.swift; sourceTree = "<group>"; };
 		ECD1ECDA26B598BA00F82A45 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				ECB2E27026ADA6E4008825B9 /* CountOnMeLogic.swift */,
+				ECAEDFBE26BC21CF006F48F8 /* CountOnMeDelegate.swift */,
 			);
 			path = Modele;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				ECD1ECDB26B598BA00F82A45 /* UIViewControllerExtension.swift in Sources */,
 				1FA43BD5224E569900F565CB /* ViewController.swift in Sources */,
 				ECB2E27126ADA6E4008825B9 /* CountOnMeLogic.swift in Sources */,
+				ECAEDFBF26BC21CF006F48F8 /* CountOnMeDelegate.swift in Sources */,
 				1FA43BD3224E569900F565CB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
