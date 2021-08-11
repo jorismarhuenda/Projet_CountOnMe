@@ -16,6 +16,10 @@ class CountOnMeLogicTest: XCTestCase {
         super.setUp()
         countOnMe = CountOnMeLogic()
     }
+    private let calculate = CountOnMeLogic()
+    private var stringNumber: [String] = [String()]
+    private var operators: [String] = [String()]
+    
     func testGivenIsExpressionIsCorrect_WhenStringNumberContainNothing_ThenExpressionReturnFalse() {
         XCTAssertFalse(countOnMe.isExpressionIsCorrect)
     }
@@ -46,52 +50,58 @@ class CountOnMeLogicTest: XCTestCase {
         XCTAssert(countOnMe.operators == ["+"])
         XCTAssert(countOnMe.index == 0)
     }
-    func testGivenOrderOfOperations_WhenStringNumberContainSomething_ThenStringNumberMinusResult() {
-        countOnMe.addNewNumber(4)
-        countOnMe.minus()
+    func testGivenEmptyStringNumber_WhenAddingManyNumber_ThenTheseNumbersAreDisplayed() {
+        countOnMe.addNewNumber(1)
         countOnMe.addNewNumber(2)
-        countOnMe.finalCalculation()
-        XCTAssertTrue(countOnMe.isExpressionIsCorrect)
+        stringNumber = countOnMe.getStringNumber()
+        XCTAssertEqual(stringNumber[0], "12")
     }
-    func testGivenOrderOfOperations_WhenStringNumberContainSomething_ThenStringNumberAdditionResult() {
-        countOnMe.addNewNumber(2)
+    func testGivenEmptyOperators_WhenAddingPlusOperator_ThenOperatorPlusAdd() {
+        print(countOnMe.getOperators())
+        countOnMe.addNewNumber(1)
         countOnMe.plus()
-        countOnMe.addNewNumber(4)
-        countOnMe.finalCalculation()
-        XCTAssertTrue(countOnMe.isExpressionIsCorrect)
+        operators = countOnMe.getOperators()
+        XCTAssertEqual(operators[1], "+")
     }
-    func testGivenOrderOfOperations_WhenStringNumberContainSomething_ThenStringNumberDivideResult() {
-        countOnMe.addNewNumber(2)
-        countOnMe.divide()
-        countOnMe.addNewNumber(2)
-        countOnMe.finalCalculation()
-        XCTAssertTrue(countOnMe.isExpressionIsCorrect)
-    }
-    func testGivenOrderOfOperations_WhenStringNumberContainZero_ThenStringNumberDivideResult() {
-        countOnMe.addNewNumber(2)
-        countOnMe.divide()
-        countOnMe.addNewNumber(0)
-        XCTAssertTrue(countOnMe.isExpressionIsCorrect)
-    }
-    func testGivenOrderOfOperations_WhenStringNumberContainSomething_ThenStringNumberMultiplyResult() {
-        countOnMe.addNewNumber(2)
-        countOnMe.multiply()
-        countOnMe.addNewNumber(2)
-        XCTAssertTrue(countOnMe.isExpressionIsCorrect)
-    }
-    func testGivenOrderOfOperations_WhenStringNumberContainSomething_ThenStringNumberFollowsOrderOfOperations() {
+    func testGivenEmptyOperators_WhenAddingMinusOperator_ThenOperatorMinusAdd() {
         countOnMe.addNewNumber(1)
         countOnMe.minus()
-        countOnMe.addNewNumber(2)
+        operators = countOnMe.getOperators()
+        XCTAssertEqual(operators[1], "-")
+    }
+    func testGivenEmptyOperators_WhenAddingMultiplyOperator_ThenOperatorMultiplyAdd() {
+        countOnMe.addNewNumber(1)
         countOnMe.multiply()
-        countOnMe.addNewNumber(3)
+        operators = countOnMe.getOperators()
+        XCTAssertEqual(operators[1], "X")
+    }
+    func testGivenEmptyOperators_WhenAddingDivideOperator_ThenOperatorDivideAdd() {
+        countOnMe.addNewNumber(1)
         countOnMe.divide()
+        operators = countOnMe.getOperators()
+        XCTAssertEqual(operators[1], "/")
+    }
+    func testGivenEmptyStringNumber_WhenAddingNumberAndPoint_ThenThisDecimalNumberIsDisplayed() {
+        countOnMe.addNewNumber(1)
+        countOnMe.addPoint()
+        countOnMe.addNewNumber(2)
+        stringNumber = countOnMe.getStringNumber()
+        XCTAssertEqual(stringNumber[0], "1.2")
+    }
+    func testNumberOne_GivenTotalIsNull_WhenMultipleOperationAdded_ThenTheOperationGivesAResult() {
+        countOnMe.addNewNumber(1)
+        countOnMe.addPoint()
+        countOnMe.addNewNumber(2)
+        countOnMe.plus()
+        countOnMe.addNewNumber(1)
+        countOnMe.addNewNumber(2)
+        countOnMe.minus()
+        countOnMe.addNewNumber(3)
+        countOnMe.multiply()
         countOnMe.addNewNumber(4)
-        countOnMe.finalCalculation()
-        XCTAssertTrue(countOnMe.isExpressionIsCorrect)
-    }
-    func testGivenOrderOfOperations_WhenStringNumberContainSomething_ThenStringNumberIsCorrect() {
-        countOnMe.orderOfOperations()
-        XCTAssert(true)
-    }
+        countOnMe.divide()
+        countOnMe.addNewNumber(5)
+        let total: () = countOnMe.finalCalculation()
+        XCTAssertEqual(total, "10.8")
+        }
 }
