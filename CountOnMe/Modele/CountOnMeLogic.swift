@@ -55,15 +55,15 @@ class CountOnMeLogic {
         }
         updateLabelText()
     }
-    // Return the array stringNumber
+    // Return the array stringNumber.
     func getStringNumber() -> [String] {
         return stringNumbers
         }
-    // Return the array of operators
+    // Return the array of operators.
     func getOperators() -> [String] {
         return operators
         }
-    // Return a boolean corresponding to the property isDecimal
+    // Return a boolean corresponding to the property isDecimal.
     func getIsDecimal() -> Bool {
         return isDecimal
         }

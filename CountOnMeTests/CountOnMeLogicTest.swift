@@ -15,11 +15,11 @@ class CountOnMeLogicTest: XCTestCase {
     override func setUp() {
         super.setUp()
         countOnMe = CountOnMeLogic()
+        countOnMe.countOnMeDelegate = countOnMeDelegateMock
     }
     private let calculate = CountOnMeLogic()
     private var stringNumber: [String] = [String()]
     private var operators: [String] = [String()]
-    
     func testGivenIsExpressionIsCorrect_WhenStringNumberContainNothing_ThenExpressionReturnFalse() {
         XCTAssertFalse(countOnMe.isExpressionIsCorrect)
     }
@@ -101,7 +101,82 @@ class CountOnMeLogicTest: XCTestCase {
         countOnMe.addNewNumber(4)
         countOnMe.divide()
         countOnMe.addNewNumber(5)
-        let total: () = countOnMe.finalCalculation()
-        XCTAssertEqual(total, "10.8")
+        countOnMe.finalCalculation()
+        XCTAssertEqual(countOnMeDelegateMock.textViewMock, "10.800")
+    }
+    func testNumberTwoo_GivenTotalIsNull_WhenMultipleOperationAdded_ThenTheOperationGivesAResult() {
+        countOnMe.addNewNumber(100)
+        countOnMe.divide()
+        countOnMe.addNewNumber(2)
+        countOnMe.multiply()
+        countOnMe.addNewNumber(2)
+        countOnMe.finalCalculation()
+        XCTAssertEqual(countOnMeDelegateMock.textViewMock, "100.000")
+       }
+    func testNumberThree_GivenTotalIsNull_WhenMultipleOperationAdded_ThenTheOperationGivesAResult() {
+        countOnMe.addNewNumber(100)
+        countOnMe.multiply()
+        countOnMe.addNewNumber(2)
+        countOnMe.divide()
+        countOnMe.addNewNumber(2)
+        countOnMe.finalCalculation()
+        XCTAssertEqual(countOnMeDelegateMock.textViewMock, "100.000")
+    }
+    func testNumberFour_GivenTotalIsNull_WhenMultipleOperationAdded_ThenTheOperationGivesAResult() {
+        countOnMe.addNewNumber(3)
+        countOnMe.plus()
+        countOnMe.addNewNumber(100)
+        countOnMe.divide()
+        countOnMe.addNewNumber(2)
+        countOnMe.multiply()
+        countOnMe.addNewNumber(2)
+        countOnMe.finalCalculation()
+        XCTAssertEqual(countOnMeDelegateMock.textViewMock, "103.000")
+    }
+    func testNumberFive_GivenTotalIsNull_WhenMultipleOperationAdded_ThenTheOperationGivesAResult() {
+        countOnMe.addNewNumber(100)
+        countOnMe.divide()
+        countOnMe.addNewNumber(2)
+        countOnMe.multiply()
+        countOnMe.addNewNumber(2)
+        countOnMe.plus()
+        countOnMe.addNewNumber(3)
+        countOnMe.finalCalculation()
+        XCTAssertEqual(countOnMeDelegateMock.textViewMock, "103.000")
+    }
+    func testNumberSix_GivenTotalIsNull_WhenMultipleOperationAdded_ThenTheOperationGivesAResult() {
+        countOnMe.addNewNumber(3)
+        countOnMe.plus()
+        countOnMe.addNewNumber(100)
+        countOnMe.divide()
+        countOnMe.addNewNumber(25)
+        countOnMe.plus()
+        countOnMe.addNewNumber(2)
+        countOnMe.multiply()
+        countOnMe.addNewNumber(2)
+        countOnMe.minus()
+        countOnMe.addNewNumber(6)
+        countOnMe.finalCalculation()
+        XCTAssertEqual(countOnMeDelegateMock.textViewMock, "5.000")
+    }
+    func testNumberSeven_GivenError_WhenDivideByZero_ThenTheOperatorIsDivideByZero() {
+        countOnMe.addNewNumber(2)
+        countOnMe.divide()
+        countOnMe.addNewNumber(0)
+        countOnMe.orderOfOperations()
+        countOnMe.finalCalculation()
+        XCTAssertEqual(countOnMeDelegateMock.textViewMock, "0.000")
+    }
+    func testGivenTheOperationIsComplete_WhenTheMethodCleanIsCall_ThenAllParameterAreReset() {
+        countOnMe.addNewNumber(3)
+        countOnMe.addNewNumber(4)
+        countOnMe.plus()
+        countOnMe.addNewNumber(1)
+        countOnMe.addNewNumber(2)
+        countOnMe.clear()
+        stringNumber = countOnMe.getStringNumber()
+        operators = countOnMe.getOperators()
+        XCTAssertTrue(stringNumber[0] == "")
+        XCTAssertTrue(operators[0] == "+")
         }
 }
