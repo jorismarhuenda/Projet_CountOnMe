@@ -13,14 +13,14 @@ import UIKit
 class CountOnMeLogic {
     // MARK: - Properties
     // Array of numbers.
-    var stringNumbers: [String] = [String()]
+    private (set) var stringNumbers: [String] = [String()]
     // Array of operators.
-    var operators: [String] = ["+"]
+    private (set) var operators: [String] = ["+"]
     var index = 0
     // Var that holds the delegate.
     var countOnMeDelegate: CountOnMeDelegate?
     // Is equal to true if the user enters a decimal number.
-    var isDecimal: Bool = false
+    private (set) var isDecimal: Bool = false
     // Var checking if the expression is correctly typed by the user, else it will alert the user.
     var isExpressionIsCorrect: Bool {
         if let stringNumber = stringNumbers.last {
