@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 // swiftlint:disable weak_delegate
 class CountOnMeLogic {
@@ -82,7 +81,7 @@ class CountOnMeLogic {
                 total -= number
             }
         }
-        let result = String(format: "%.3f", total)
+        let result = total.string()
         countOnMeDelegate?.updateTextView(label: result)
     }
     // swiftlint:disable identifier_name

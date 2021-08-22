@@ -11,8 +11,9 @@ import XCTest
 
 class CountOnMeDelegateMock: CountOnMeDelegate {
     var textViewMock: String = "0"
+    var errorMock: String?
     func alertShow(title: String, message: String) {
-        print("")
+        errorMock = message
     }
     func updateTextView(label: String) {
         textViewMock = label
