@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         case "=":
             countOnMeLogic.finalCalculation()
         case ".":
-            countOnMeLogic.addPoint()
+            countOnMeLogic.canAddPoint()
         default:
             break
         }

@@ -196,4 +196,11 @@ class CountOnMeLogicTest: XCTestCase {
         XCTAssertTrue(stringNumber[0] == "")
         XCTAssertTrue(operators[0] == "+")
         }
+    func testError_GivenError_WhenUsePointMoreThanOne_ThenNumberIsDecimal() {
+        countOnMe.addNewNumber(1)
+        countOnMe.addPoint()
+        countOnMe.addNewNumber(2)
+        countOnMe.addPoint()
+        XCTAssertEqual(countOnMeDelegateMock.errorMock, "nil")
+    }
 }

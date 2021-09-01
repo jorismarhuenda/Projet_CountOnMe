@@ -8,7 +8,6 @@
 
 import Foundation
 
-// swiftlint:disable weak_delegate
 class CountOnMeLogic {
     // MARK: - Properties
     // Array of numbers.
@@ -17,7 +16,7 @@ class CountOnMeLogic {
     private (set) var operators: [String] = ["+"]
     var index = 0
     // Var that holds the delegate.
-    var countOnMeDelegate: CountOnMeDelegate?
+    weak var countOnMeDelegate: CountOnMeDelegate?
     // Is equal to true if the user enters a decimal number.
     private (set) var isDecimal: Bool = false
     // Var checking if the expression is correctly typed by the user, else it will alert the user.
@@ -124,6 +123,13 @@ class CountOnMeLogic {
             }
         updateLabelText()
         }
+    func canAddPoint() {
+        if isDecimal == false {
+            addPoint()
+        } else {
+            countOnMeDelegate?.alertShow(title: "Nothing!", message: "Wrong expression")
+        }
+    }
     // Method managing reset of the label's text.
     func clear() {
         stringNumbers = [String()]
